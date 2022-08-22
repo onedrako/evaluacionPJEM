@@ -15,9 +15,13 @@ const Inputs = ({ data, formikConfig }) => {
           {textInputs[key]}
           <textarea {...formikConfig.getFieldProps(`${question}.${key}`)} ></textarea>
         </div>
+        )}
 
-        )
-        }
+      {/* If component has single text area */}
+      {questionType === 'textInput' &&
+            <textarea {...formikConfig.getFieldProps(`${question}`)} ></textarea>
+      }
+
     </div>
   )
 }
