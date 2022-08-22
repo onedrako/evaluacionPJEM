@@ -34,7 +34,19 @@ const Inputs = ({ data, formikConfig }) => {
           False
         </label>
       </>
-}
+      }
+
+      {/* If Component is checkBox */}
+      {questionType === 'comboBox' &&
+      <>
+        <img src="https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg" alt="" />
+        <select {...formikConfig.getFieldProps(`${question}`)} >
+          <option value="">Select an option</option>
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </>
+    }
 
     </div>
   )
