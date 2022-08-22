@@ -14,12 +14,17 @@ const Inputs = ({ data, formikConfig }) => {
         <div key={`${question}-${textInputs.key}-${index}`}>
           {textInputs[key]}
           <textarea {...formikConfig.getFieldProps(`${question}.${key}`)} ></textarea>
+
+          {formikConfig.touched[`${question}.${key}`] && formikConfig.errors[`${question}.${key}`] &&
+                  <p>{formikConfig.errors[question]}</p>
+
+          }
         </div>
         )}
 
       {/* If component has single text area */}
       {questionType === 'textInput' &&
-            <textarea {...formikConfig.getFieldProps(`${question}`)} ></textarea>
+        <textarea {...formikConfig.getFieldProps(`${question}`)} ></textarea>
       }
 
       {/* If Component is checkBox */}
@@ -36,10 +41,24 @@ const Inputs = ({ data, formikConfig }) => {
       </>
       }
 
+      {/* If Component is radio */}
+      {questionType === 'radioButton' &&
+      <>
+        <label>
+          true
+          <input type="radio" name={`${question}`} onChange={formikConfig.handleChange} value="true"/>
+        </label>
+        <label>
+          false
+          <input type="radio" name={`${question}`} onChange={formikConfig.handleChange} value="false"/>
+        </label>
+      </>
+      }
+
       {/* If Component is checkBox */}
       {questionType === 'comboBox' &&
       <>
-        <img src="https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg" alt="" />
+        <img src={img} alt="" />
         <select {...formikConfig.getFieldProps(`${question}`)} >
           <option value="">Select an option</option>
           <option value="true">True</option>
@@ -47,6 +66,12 @@ const Inputs = ({ data, formikConfig }) => {
         </select>
       </>
     }
+
+    {/* Error handler */}
+    {questionType !== 'multiple' &&
+      formikConfig.touched[question] && formikConfig.errors[question] && (
+      <p>{formikConfig.errors[question]}</p>
+    )}
 
     </div>
   )

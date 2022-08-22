@@ -35,21 +35,21 @@ export const questionData = [
     question: 'q5',
     questionText: 'The next component belongs to ES6 standards',
     questionType: 'comboBox',
-    img: ''
+    img: 'https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg'
   },
   {
     id: 6,
     question: 'q6',
     questionText: 'The next component belongs to ES6 standards',
     questionType: 'comboBox',
-    img: ''
+    img: 'https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg'
   },
   {
     id: 7,
     question: 'q7',
     questionText: 'The next Require declaration belongs to ES6 standards',
     questionType: 'radioButton',
-    img: ''
+    img: 'https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg'
   },
   {
     id: 8,

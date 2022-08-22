@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
-// import * as Yup from 'yup'
+import * as Yup from 'yup'
 
 import { questionData } from '../../Mocks/questionData'
 
@@ -49,8 +49,41 @@ const Form = () => {
     },
     onSubmit: values => {
       console.log(values)
-    }
-    // validationSchema: Yup.object({})
+    },
+    validationSchema: Yup.object({
+      q1: Yup.object({
+        a: Yup.string().required('The answer is required'),
+        b: Yup.string().required('The answer is required'),
+        c: Yup.string().required('The answer is required'),
+        d: Yup.string().required('The answer is required'),
+        e: Yup.string().required('The answer is required')
+      }),
+      q2: Yup.array().min(1, 'Have to be only one option').max(1, 'Have to be only one option').required('The answer is required'),
+      q3: Yup.array().min(1, 'Have to be only one option').max(1, 'Have to be only one option').required('The answer is required'),
+      q4: Yup.array().min(1, 'Have to be only one option').max(1, 'Have to be only one option').required('The answer is required'),
+      q5: Yup.string().required('The answer is required'),
+      q6: Yup.string().required('The answer is required'),
+      q7: Yup.string().required('The answer is required'),
+      q8: Yup.string().required('The answer is required'),
+      q9: Yup.string().required('The answer is required'),
+      q10: Yup.string().required('The answer is required'),
+      q11: Yup.string().required('The answer is required'),
+      q12: Yup.string().required('The answer is required'),
+      q13: Yup.string().required('The answer is required'),
+      q14: Yup.string().required('The answer is required'),
+      q15: Yup.string().required('The answer is required'),
+      q16: Yup.string().required('The answer is required'),
+      q17: Yup.string().required('The answer is required'),
+      q18: Yup.string().required('The answer is required'),
+      q19: Yup.object({
+        a: Yup.string().required('The answer is required'),
+        b: Yup.string().required('The answer is required'),
+        c: Yup.string().required('The answer is required'),
+        d: Yup.string().required('The answer is required'),
+        e: Yup.string().required('The answer is required')
+      }),
+      q20: Yup.string().required('The answer is required')
+    })
   })
 
   return (
@@ -59,36 +92,8 @@ const Form = () => {
         <form onSubmit={formik.handleSubmit}>
 
           {data.map(question =>
-            <Inputs key={question.id} data={question} formikConfig={formik} />
+            <Inputs key={question.id} data={question} formikConfig={formik}/>
           )}
-
-          {/* <div>
-            <h3>1. Pregunta Input</h3>
-            <textarea {...formik.getFieldProps('q1.a')} ></textarea>
-          </div>
-
-          <div>
-            <h3>2. Pregunta Checkbox</h3>
-            <label>
-              <input type="checkbox" name='q6' onChange={formik.handleChange} value="true"/>
-              true
-            </label>
-            <label>
-              <input type="checkbox" name='q6' onChange={formik.handleChange} value="false"/>
-              False
-            </label>
-          </div>
-
-          <div>
-            <h3>1. Pregunta ComboBox</h3>
-            <img src="https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg" alt="" />
-            <select {...formik.getFieldProps('q8')} >
-              <option value="">Select an option</option>
-              <option value="true">True</option>
-              <option value="false">False</option>
-            </select>
-          </div> */}
-
           <button type='button' onClick={() => formik.handleSubmit()}>Submit</button>
 
         </form>
