@@ -7,6 +7,9 @@ import { questionData } from '../../Mocks/questionData'
 import { StyledFormContainer } from '../styles/Form/Form'
 import Inputs from './Inputs'
 
+import { safeHTMLObject } from '../utils/sanitizeObject'
+import { prepareDataResponse } from '../utils/prepareDataResponse'
+
 const Form = () => {
   const [data, setData] = useState(questionData)
 
@@ -48,7 +51,10 @@ const Form = () => {
       q20: ''
     },
     onSubmit: values => {
-      console.log(values)
+      const prepareData = prepareDataResponse(values)
+      const cleanObject = safeHTMLObject(prepareData)
+
+      console.log(cleanObject)
     },
     validationSchema: Yup.object({
       q1: Yup.object({

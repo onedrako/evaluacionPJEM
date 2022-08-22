@@ -19,6 +19,7 @@
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
     "react-router-dom": "6.3.0",
+    "sanitize-html": "^2.7.1",
     "styled-components": "5.3.5",
     "yup": "^0.32.11"
   },

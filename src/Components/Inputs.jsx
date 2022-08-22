@@ -15,9 +15,8 @@ const Inputs = ({ data, formikConfig }) => {
           {textInputs[key]}
           <textarea {...formikConfig.getFieldProps(`${question}.${key}`)} ></textarea>
 
-          {formikConfig.touched[`${question}.${key}`] && formikConfig.errors[`${question}.${key}`] &&
-                  <p>{formikConfig.errors[question]}</p>
-
+          {formikConfig.touched[`${question}`] && formikConfig.errors[`${question}`] &&
+            <p>All answers are required</p>
           }
         </div>
         )}
