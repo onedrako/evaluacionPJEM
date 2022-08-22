@@ -22,6 +22,20 @@ const Inputs = ({ data, formikConfig }) => {
             <textarea {...formikConfig.getFieldProps(`${question}`)} ></textarea>
       }
 
+      {/* If Component is checkBox */}
+      {questionType === 'checkBox' &&
+      <>
+        <label>
+          <input type="checkbox" name={`${question}`} onChange={formikConfig.handleChange} value="true"/>
+          true
+        </label>
+        <label>
+          <input type="checkbox" name={`${question}`} onChange={formikConfig.handleChange} value="false"/>
+          False
+        </label>
+      </>
+}
+
     </div>
   )
 }
