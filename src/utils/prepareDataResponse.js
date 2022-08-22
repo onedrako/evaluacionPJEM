@@ -11,16 +11,25 @@ const verifyiIfIsBoolean = (value) => {
 
 export const prepareDataResponse = (data) => {
   const copy = { ...data }
-  const prepareData = []
+  const prepareData = [{}]
 
-  console.log('copy', copy)
+  // Return as an Array
+  // Object.values(copy).forEach(value => {
+  //   if (!Array.isArray(value)) {
+  //     prepareData.push(verifyiIfIsBoolean(value))
+  //   } else {
+  //     prepareData.push(verifyiIfIsBoolean(value[0]))
+  //   }
+  // })
 
-  Object.values(copy).forEach(value => {
-    if (!Array.isArray(value)) {
-      prepareData.push(verifyiIfIsBoolean(value))
+  // Return as an Object
+  Object.keys(copy).forEach(key => {
+    if (!Array.isArray(copy[key])) {
+      prepareData[0][key] = (verifyiIfIsBoolean(copy[key]))
     } else {
-      prepareData.push(verifyiIfIsBoolean(value[0]))
+      prepareData[0][key] = (verifyiIfIsBoolean(copy[key][0]))
     }
   })
+
   return prepareData
 }
