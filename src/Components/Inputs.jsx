@@ -43,6 +43,7 @@ const Inputs = ({ data, formikConfig }) => {
       {/* If Component is radio */}
       {questionType === 'radioButton' &&
       <>
+        <img src={img} alt="" />
         <label>
           true
           <input type="radio" name={`${question}`} onChange={formikConfig.handleChange} value="true"/>
